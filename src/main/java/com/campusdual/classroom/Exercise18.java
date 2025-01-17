@@ -5,25 +5,24 @@ import com.campusdual.util.Utils;
 public class Exercise18 {
 
 	public static void main(String[] args) {
-		int param = Utils.integer("Introduce el número de elementos: \n");
-		createAndInitializeArray(param);
 
-		System.out.println("Elementos del array: ");
-		showInlineArray(createAndInitializeArray(param));
-
+		showInlineArray(createAndInitializeArray(Utils.integer("Introduce el número de elementos: ")));
 	}
 
-	public static int[] createAndInitializeArray(int param) {
-		int [] intArray = new int[param];
-		for (int i = 1; i < intArray.length; i++) {
-			intArray[i] = i;
+	public static int[] createAndInitializeArray(int length) {
+		int [] intArray = new int[length];
+		for (int i = 0; i < intArray.length; i++) {
+			intArray[i] = i + 1;
 		}
         return intArray;
     }
 	public static void showInlineArray(int[] intArray) {
-		for (int element : intArray) {
-			System.out.print(element + " ");
+		for (int i = 0; i < intArray.length; i++) {
+			System.out.print(intArray[i]);
+
+			if( i < intArray.length - 1) {
+				System.out.println(" ");
+			}
 		}
-		System.out.println("\n");
 	}
 }
